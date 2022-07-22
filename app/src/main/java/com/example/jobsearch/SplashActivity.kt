@@ -19,8 +19,11 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
-        Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-        }, 3000)
+        if (hasFocus) {
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                finish()
+            }, 3000)
+        }
     }
 }
